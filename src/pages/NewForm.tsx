@@ -3,7 +3,7 @@ import { useStore } from '@/store/useStore';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
-import { CheckCircle2, Copy, ExternalLink, Send, FileText } from 'lucide-react';
+import { CheckCircle2, Copy, ExternalLink, Send, FileText, MessageSquare } from 'lucide-react';
 
 export default function NewForm() {
     const { patients, addForm } = useStore();
@@ -32,6 +32,17 @@ export default function NewForm() {
         navigator.clipboard.writeText(generatedLink);
         setCopied(true);
         setTimeout(() => setCopied(false), 2000);
+    };
+
+    const shareWhatsApp = () => {
+        const patient = patients.find(p => p.id === selectedPatientId);
+        if (!patient) return;
+
+        const message = encodeURIComponent(
+            `Olá ${patient.name.split(' ')[0]}, aqui está o Termo de Consentimento para sua consulta na ${useStore.getState().currentDentist?.clinicName || 'clínica'}.\n\nPor favor, acesse e assine digitalmente: ${generatedLink}`
+        );
+        const url = `https://wa.me/55${patient.phone.replace(/\D/g, '')}?text=${message}`;
+        window.open(url, '_blank');
     };
 
     return (
@@ -104,10 +115,21 @@ export default function NewForm() {
                                 {copied ? <CheckCircle2 className="text-green-500" /> : <Copy size={18} />}
                             </Button>
                         </div>
-                        <div className="flex justify-center pt-2">
-                            <Button variant="link" className="gap-2 text-neutral-500 text-xs" onClick={() => window.open(generatedLink, '_blank')}>
+                        <div className="grid grid-cols-2 gap-3 pt-2">
+                            <Button
+                                className="gap-2 bg-green-600 hover:bg-green-700 text-white"
+                                onClick={shareWhatsApp}
+                            >
+                                <MessageSquare size={18} />
+                                Enviar WhatsApp
+                            </Button>
+                            <Button
+                                variant="outline"
+                                className="gap-2 text-neutral-500"
+                                onClick={() => window.open(generatedLink, '_blank')}
+                            >
                                 <ExternalLink size={14} />
-                                Testar Visualização do Paciente
+                                Testar Link
                             </Button>
                         </div>
                     </CardContent>

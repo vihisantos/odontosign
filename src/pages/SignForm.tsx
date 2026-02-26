@@ -4,7 +4,7 @@ import { useStore } from '@/store/useStore';
 import SignatureCanvas from 'react-signature-canvas';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { HeartPulse, CheckCircle2, ShieldCheck, AlertCircle, RotateCcw } from 'lucide-react';
+import { HeartPulse, CheckCircle2, ShieldCheck, AlertCircle, RotateCcw, Download } from 'lucide-react';
 import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
 
@@ -86,6 +86,14 @@ export default function SignForm() {
         );
     }
 
+    const downloadPDF = () => {
+        if (!form?.pdfUrl) return;
+        const link = document.createElement('a');
+        link.href = form.pdfUrl;
+        link.download = `Termo_Assinado_${patient.name.replace(/\s+/g, '_')}.pdf`;
+        link.click();
+    };
+
     if (signed || form.status === 'signed') {
         return (
             <div className="min-h-screen bg-neutral-50 flex flex-col items-center justify-center p-6 text-center animate-in fade-in zoom-in-95 duration-700">
@@ -96,7 +104,15 @@ export default function SignForm() {
                 <p className="text-neutral-500 mt-4 max-w-sm text-lg">
                     Obrigado, <strong>{patient.name.split(' ')[0]}</strong>. Sua assinatura foi processada e o documento PDF foi arquivado com segurança no consultório.
                 </p>
-                <div className="mt-12 flex flex-col items-center gap-2">
+                <div className="mt-8 flex flex-col items-center gap-4">
+                    <Button
+                        onClick={downloadPDF}
+                        className="gap-2 px-8 py-6 text-lg bg-neutral-900 hover:bg-neutral-800"
+                    >
+                        <Download size={20} />
+                        Baixar Minha Via (PDF)
+                    </Button>
+
                     <div className="flex items-center gap-2 text-xs text-neutral-400 font-medium bg-white px-4 py-2 rounded-full border shadow-sm">
                         <ShieldCheck size={14} className="text-primary" />
                         Certificado Digital OdontoSign v1.0
