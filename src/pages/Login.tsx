@@ -34,7 +34,6 @@ export default function Login() {
 
             <Card className="w-full max-w-md shadow-xl border-t-4 border-t-primary animate-in fade-in zoom-in-95 duration-500">
                 <CardHeader className="space-y-1">
-                    <CardTitle className="text-2xl text-center">Acesso do Dentista</h111>
                     <CardTitle className="text-2xl text-center">Acesso do Dentista</CardTitle>
                     <CardDescription className="text-center">
                         Insira suas credenciais para gerenciar seus termos digitais.
