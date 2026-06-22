@@ -3,7 +3,6 @@ import { useStore } from '@/store/useStore';
 import { LayoutDashboard, Users, FilePlus, LogOut, HeartPulse, Sun, Moon, Monitor } from 'lucide-react';
 import { Button } from '../ui/button';
 import { useTheme } from '../../lib/theme';
-import { motion } from 'motion/react';
 
 export const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
     const { currentDentist, logout } = useStore();
@@ -32,10 +31,10 @@ export const DashboardLayout = ({ children }: { children: React.ReactNode }) => 
     return (
         <div className="min-h-screen bg-background flex">
             {/* Sidebar */}
-            <aside className="w-64 bg-white dark:bg-slate-900 border-r border-border hidden md:flex flex-col">
+            <aside className="w-64 bg-card border-r border-border hidden md:flex flex-col">
                 <div className="p-6 flex items-center gap-2">
                     <HeartPulse className="text-primary w-8 h-8" />
-                    <span className="font-bold text-xl tracking-tight text-foreground">OdontoSign</span>
+                    <span className="font-bold text-xl tracking-tight text-card-foreground">OdontoSign</span>
                 </div>
 
                 <nav className="flex-1 px-4 space-y-2 mt-4">
@@ -74,7 +73,7 @@ export const DashboardLayout = ({ children }: { children: React.ReactNode }) => 
                                     onClick={() => setTheme(t)}
                                     className={`flex-1 flex items-center justify-center py-1.5 rounded-md text-xs font-medium transition-colors ${
                                         theme === t
-                                            ? "bg-white dark:bg-slate-800 text-foreground shadow-sm"
+                                            ? "bg-card text-foreground shadow-sm"
                                             : "text-muted-foreground hover:text-foreground"
                                     }`}
                                 >
@@ -93,10 +92,10 @@ export const DashboardLayout = ({ children }: { children: React.ReactNode }) => 
 
             {/* Main Content */}
             <main className="flex-1 flex flex-col min-h-screen overflow-auto">
-                <header className="h-16 px-8 border-b border-border bg-white dark:bg-slate-900 flex items-center justify-between md:justify-end">
+                <header className="h-16 px-8 border-b border-border bg-card flex items-center justify-between md:justify-end">
                     <div className="md:hidden flex items-center gap-2">
                         <HeartPulse className="text-primary w-6 h-6" />
-                        <span className="font-bold text-foreground">OdontoSign</span>
+                        <span className="font-bold text-card-foreground">OdontoSign</span>
                     </div>
 
                     {/* Mobile nav */}
