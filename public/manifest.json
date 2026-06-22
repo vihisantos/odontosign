@@ -1,0 +1,20 @@
+{
+  "name": "OdontoSign - Assinatura Digital Odontológica",
+  "short_name": "OdontoSign",
+  "description": "Assinatura digital de termos e formulários para dentistas de forma simples e segura.",
+  "start_url": "/odontosign/login",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#3b82f6",
+  "orientation": "portrait",
+  "scope": "/odontosign/",
+  "icons": [
+    {
+      "src": "/odontosign/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["medical", "health"]
+}

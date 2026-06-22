@@ -1,4 +1,4 @@
-# Odontosign
+# OdontoSign
 
 <p align="center">
   <strong>Aplicativo para gestao de clinicas odontologicas.</strong>
@@ -6,6 +6,12 @@
   Gerenciamento de consultas, pacientes, recebimentos
   <br>
   e assinatura digital de documentos.
+</p>
+
+<p align="center">
+  <a href="https://vihisantos.github.io/odontosign/login">
+    <img src="https://img.shields.io/badge/Ver_Projeto-online-3b82f6?style=for-the-badge&logo=github&logoColor=white" alt="Ver Projeto">
+  </a>
 </p>
 
 <p align="center">
@@ -20,7 +26,7 @@
 
 ## Sobre
 
-**Odontosign** e um aplicativo web para gestao de clinicas odontologicas. Oferece agendamento de consultas, gerenciamento de pacientes, emissao de recibos com assinatura digital e controle financeiro.
+**OdontoSign** e um aplicativo web para gestao de clinicas odontologicas. Oferece agendamento de consultas, gerenciamento de pacientes, emissao de recibos com assinatura digital e controle financeiro.
 
 ---
 
@@ -49,6 +55,9 @@
 - Controle financeiro
 - Prontuario digital
 - Design responsivo
+- Dark mode
+- PWA (instalavel)
+- Animacoes de pagina
 
 ---
 

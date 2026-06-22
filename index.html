@@ -1,18 +1,41 @@
 <!doctype html>
 <html lang="pt-BR">
-
 <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>OdontoSign - Sistema de Assinatura Digital para Dentistas</title>
-    <meta name="description"
-        content="Assinatura digital de termos e formulários para dentistas de forma simples e segura." />
-</head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>OdontoSign - Assinatura Digital</title>
+    <meta name="description" content="Assinatura digital de termos e formulários para dentistas de forma simples e segura." />
+    <meta name="theme-color" content="#3b82f6" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="OdontoSign" />
 
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="OdontoSign - Assinatura Digital Odontológica" />
+    <meta property="og:description" content="Assinatura digital de termos e formulários para dentistas de forma simples e segura." />
+    <meta property="og:image" content="https://vihisantos.github.io/odontosign/og-image.svg" />
+    <meta property="og:url" content="https://vihisantos.github.io/odontosign/" />
+    <meta property="og:site_name" content="OdontoSign" />
+    <meta property="og:locale" content="pt_BR" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="OdontoSign - Assinatura Digital Odontológica" />
+    <meta name="twitter:description" content="Assinatura digital de termos e formulários para dentistas." />
+    <meta name="twitter:image" content="https://vihisantos.github.io/odontosign/og-image.svg" />
+
+    <link rel="icon" type="image/svg+xml" href="/odontosign/favicon.svg" />
+    <link rel="manifest" href="/odontosign/manifest.json" />
+    <link rel="apple-touch-icon" href="/odontosign/favicon.svg" />
+</head>
 <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/odontosign/sw.js');
+        }
+    </script>
 </body>
-
 </html>
