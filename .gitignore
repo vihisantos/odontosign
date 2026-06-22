@@ -22,3 +22,7 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Capybara workspace
+.capybara/
+.capybara-workspace.json
